@@ -1,0 +1,37 @@
+<template>
+  <!-- Basic nav menu which will remain fixed at the top -->
+  <nav class="navbar navbar-fixed-top pmd-navbar pmd-z-depth">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header navbar-right">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="#" class="navbar-brand navbar-brand-custome">Brand</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="pmd-ripple-effect" href="#">ارتباط با ما</a></li>
+          <li><a class="pmd-ripple-effect" href="#">خدمات</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+    <div class="pmd-sidebar-overlay"></div>
+  </nav>
+</template>
+<script>
+
+</script>
+<style>
+  .navbar{
+    font-family: IRANSans,monospace;
+    margin-bottom: 0;
+  }
+  .pmd-z-depth {
+    box-shadow: none;
+  }
+</style>
