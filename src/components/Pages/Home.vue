@@ -1,14 +1,11 @@
 <template>
-<div>
-  <app-button button_label="Butt" button_style="outline"></app-button>
-</div>
+
 </template>
 
 <script>
 import InputText from '@/components/Elements/Input_Text.vue'
 import Select from '@/components/Elements/Select.vue'
 import Button from '@/components/Elements/Button.vue'
-
 
 export default {
   name: 'HelloWorld',
