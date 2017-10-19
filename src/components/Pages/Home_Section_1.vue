@@ -50,7 +50,8 @@
       {
         enterClicked(){
             axios.post(enterAPIPath, this.register_data).then((response) => {
-              console.log(response.data.token);
+              localStorage["token"] = response.data.user.token;
+              console.log(localStorage["token"]);
             }).catch((err) => {
               this.button_text = 'ارسال اطلاعات با خطا روبرو شد';
             });

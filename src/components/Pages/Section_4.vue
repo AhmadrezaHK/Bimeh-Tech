@@ -75,8 +75,8 @@
           {
 //            let jsondata = JSON.stringify(this.register_data);
             axios.post(registerAPIPath, this.register_data).then((response) => {
+              localStorage["token"] = response.data.user.token;
               this.status_text = 'اطلاعات با موفقیت ثبت شد';
-              console.log(response)
             }).catch((err) => {
               this.status_text = 'ارسال اطلاعات با خطا روبرو شد';
               console.log(err)
