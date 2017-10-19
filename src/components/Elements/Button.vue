@@ -1,10 +1,10 @@
 <template>
-  <button type="button" @click="clicked" :class="buttonClasses"> {{button_label}} </button>
+  <button :data-toggle="toggle_mode" :data-target="target" type="button" @click="clicked" :class="buttonClasses"> {{button_label}} </button>
 </template>
 
 <script>
 export default {
-  props: ['button_label', 'button_style'],
+  props: ['button_label', 'button_style', 'comp_id','toggle_mode','target'],
   data: function()
   {
       return {

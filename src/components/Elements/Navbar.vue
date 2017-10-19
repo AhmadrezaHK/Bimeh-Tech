@@ -15,11 +15,11 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="#"><app-button class="btn-bimeh" button_label="ورود" button_style="outline"></app-button></a></li>
-          <li><a href="#">
+          <li><a href="#"><app-button toggle_mode="modal" target="#form-dialog" class="btn-bimeh" button_label="ورود" button_style="outline"></app-button></a></li>
+          <li><a href="#section_5">
             <app-button class="btn-bimeh btn-bimeh--borderNone" button_label="ارتباط با ما"></app-button>
           </a></li>
-          <li><a href="#">
+          <li><a href="#section_3">
             <app-button class="btn-bimeh btn-bimeh--borderNone" button_label="خدمات"></app-button>
           </a></li>
         </ul>
