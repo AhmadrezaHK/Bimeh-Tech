@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import About from '@/components/About'
-import Coins from '@/components/Coins'
+import HelloWorld from '@/components/Pages/HelloWorld.vue'
+import About from '@/components/Pages/About.vue'
+import Coins from '@/components/Pages/Coins.vue'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
