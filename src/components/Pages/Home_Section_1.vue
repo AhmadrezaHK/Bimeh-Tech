@@ -98,7 +98,7 @@
     background-color: rgba(29, 233, 182, 1);
   }
   .modal-dialog, .modal-content{
-    background-color: rgba(29, 233, 182, 1);
+    background-color: rgba(0, 150, 136, 1);
   }
   .pmd-card-title-text.text-right{
     color: #fff;
@@ -106,5 +106,35 @@
   .btn-modal{
     padding-right: 30px;
     padding-left: 30px;
+  }
+  .modal-header .pmd-modal-bordered{
+    border: none;
+  }
+  @media screen and (max-width: 991px){
+    .section_1__content--1{
+      top:30%;
+      -webkit-transform: translateY(-30%);
+      -moz-transform: translateY(-30%);
+      -ms-transform: translateY(-30%);
+      -o-transform: translateY(-30%);
+      transform: translateY(-30%);
+      font-size: 40px;
+    }
+    .section_1__content--2{
+      top:45%;
+      -webkit-transform: translateY(-45%);
+      -moz-transform: translateY(-45%);
+      -ms-transform: translateY(-45%);
+      -o-transform: translateY(-45%);
+      transform: translateY(-45%);
+      line-height: 2.2;
+      font-size: 12px;
+      left: 30%;
+      -webkit-transform: translateX(-20%) !important;
+      -moz-transform: translateX(-20%) !important;
+      -ms-transform: translateX(-20%) !important;
+      -o-transform: translateX(-20%) !important;
+      transform: translateX(-20%) !important;
+    }
   }
 </style>
