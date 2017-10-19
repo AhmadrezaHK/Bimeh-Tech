@@ -16,8 +16,8 @@
           </div>
           <div class="modal-body">
             <form class="form-horizontal">
-              <app-input :v-model="phone_number" input_label="شماره تلفن" input_type="number" comp_id="0" key="0"></app-input>
-              <app-input :v-model="password" input_label="رمز عبور" input_type="password" comp_id="1" key="1"></app-input>
+              <app-input v-model="register_data.phone_number" input_label="شماره تلفن" input_type="number" comp_id="0" key="0"></app-input>
+              <app-input v-model="register_data.password" input_label="رمز عبور" input_type="password" comp_id="1" key="1"></app-input>
             </form>
           </div>
           <div class="pmd-modal-action">

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import InputText from '@/components/Elements/Input_Text.vue'
+  import InputText from '@/components/Elements/Input_text.vue'
   import Select from '@/components/Elements/Select.vue'
   import Section_1 from './Home_Section_1.vue'
   import Section_2 from './Section_2.vue'
