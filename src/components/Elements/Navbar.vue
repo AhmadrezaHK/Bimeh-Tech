@@ -10,7 +10,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+<!--
         <a href="#" class="navbar-brand navbar-brand-custome">Brand</a>
+-->
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
@@ -81,5 +83,8 @@
   }
   .btn-bimeh--borderNone{
     border: none;
+  }
+  .icon-bar{
+    background-color: #fff;
   }
 </style>

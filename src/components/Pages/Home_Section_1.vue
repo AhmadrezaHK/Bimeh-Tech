@@ -12,20 +12,16 @@
         <div class="modal-content">
           <div class="modal-header pmd-modal-bordered">
             <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-            <h2 class="pmd-card-title-text">ورود</h2>
+            <h2 class="pmd-card-title-text text-right">ورود</h2>
           </div>
           <div class="modal-body">
             <form class="form-horizontal">
-              <label for="first-name">Name</label>
-              <input type="text" class="mat-input form-control" id="name" value="">
-              <span class="help-text">Input is required!</span>
               <app-input input_label="شماره تلفن" input_type="number" comp_id="0" key="0"></app-input>
               <app-input input_label="رمز عبور" input_type="password" comp_id="1" key="1"></app-input>
             </form>
           </div>
           <div class="pmd-modal-action">
-            <button data-dismiss="modal"  class="btn pmd-ripple-effect btn-primary" type="button">Save changes</button>
-            <button data-dismiss="modal"  class="btn pmd-ripple-effect btn-default" type="button">Discard</button>
+            <app-button class="btn-modal" dismiss="modal" button_label="ورود"></app-button>
           </div>
         </div>
       </div>
@@ -100,5 +96,15 @@
   }
   .section_1__content--3:active:hover{
     background-color: rgba(29, 233, 182, 1);
+  }
+  .modal-dialog, .modal-content{
+    background-color: rgba(29, 233, 182, 1);
+  }
+  .pmd-card-title-text.text-right{
+    color: #fff;
+  }
+  .btn-modal{
+    padding-right: 30px;
+    padding-left: 30px;
   }
 </style>

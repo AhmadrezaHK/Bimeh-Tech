@@ -28,11 +28,17 @@
   .control-label.my-input{
     color: #fff !important;
   }
+  .form-control{
+    color: #fff;
+  }
   @media (min-width: 768px){
     .form-horizontal .control-label.my-input {
       padding-top: 0 !important;
       margin-bottom: 0 !important;
       text-align: right !important;
     }
+  }
+  .pmd-textfield-focused{
+    background-color: #fff;
   }
 </style>
