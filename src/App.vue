@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-link :to="{ name: 'Home' }">Home</router-link>
-    <router-link to="/about">About</router-link>
-    <router-link to="/coins/ethereum">Ethereum</router-link>
-    <router-link to="/coins/bitcoin">Bitcoin</router-link>
+    <app-navbar></app-navbar>
     <router-view/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
+  import Navbar from '@/components/Elements/Navbar.vue'
+
+  export default {
+    name: 'app',
+    components:{
+      'app-navbar': Navbar
+    }
 }
 </script>
 
@@ -21,7 +22,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
