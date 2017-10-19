@@ -30,5 +30,36 @@
 </script>
 
 <style>
-
+  .addCar{
+    font-family: IRANSans,monospace;
+  }
+  .addCar .form-group{
+    text-align: right;
+  }
+  .addCar .control-label.my-input{
+    color: #333 !important;
+  }
+  .addCar .form-control{
+    color: #333;
+  }
+  @media (min-width: 768px){
+    .addCar .form-horizontal .control-label.my-input {
+      padding-top: 0 !important;
+      margin-bottom: 0 !important;
+      text-align: right !important;
+    }
+  }
+  .addCar .pmd-textfield-focused{
+    background-color: #333;
+  }
+  .addCar .select-lable{
+    color: #333!important;
+    padding-right: 25px;
+  }
+  .addCar .select-simple.form-control.pmd-select2{
+    color: #333;
+  }
+  .addCar .select-simple.form-control.pmd-select2[selected="true"]{
+    color: #333;
+  }
 </style>
