@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Pages/Home.vue'
 import About from '@/components/Pages/About.vue'
 import Coins from '@/components/Pages/Coins.vue'
+import Dashboard from '@/components/Pages/Dashboard.vue'
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/coins/:id',
       name: 'Coins',
       component: Coins
+    },
+    {
+      path: '/Dashboard',
+      name: 'Dashboard',
+      component: Dashboard
     }
   ]
 })
