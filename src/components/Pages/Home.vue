@@ -1,15 +1,17 @@
 <template>
-  <div class="section_1">
-    <router-link :to="{ name: 'Home' }">Home</router-link>
-    <router-link to="/about">About</router-link>
-    <router-link to="/coins/ethereum">Ethereum</router-link>
-    <router-link to="/coins/bitcoin">Bitcoin</router-link>
+  <div>
+    <app-section_1></app-section_1>
+    <app-section_2></app-section_2>
+    <app-section_3></app-section_3>
   </div>
 </template>
 
 <script>
   import InputText from '@/components/Elements/Input_Text.vue'
   import Select from '@/components/Elements/Select.vue'
+  import Section_1 from './Home_Section_1.vue'
+  import Section_2 from './Section_2.vue'
+  import Section_3 from './Section_3.vue'
 export default {
   name: 'HelloWorld',
   data () {
@@ -19,21 +21,16 @@ export default {
   },
   components: {
     'app-input': InputText,
-    'app-select': Select
+    'app-select': Select,
+    'app-section_1':Section_1,
+    'app-section_2':Section_2,
+    'app-section_3':Section_3
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .section_1{
-    background: url(../../assets/img/dg.jpg) center fixed no-repeat;
-    background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    -webkit-background-size: cover;
-    height: 100vh;
-  }
 h1, h2 {
   font-weight: normal;
 }

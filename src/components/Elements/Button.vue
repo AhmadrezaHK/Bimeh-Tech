@@ -12,11 +12,8 @@ export default {
       }
   },
   created(){
-      this.outline = false;
-      if(this.button_style === 'outline')
-      {
-          this.outline = true;
-      }
+
+      this.outline = this.button_style === 'outline';
   },
   methods:{
       clicked()
