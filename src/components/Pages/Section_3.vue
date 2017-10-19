@@ -9,23 +9,7 @@
             لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن
           </p>
         </div>
-        <div class="col-md-4">
-          <div class="row row--imgContainer">
-            <div class="col-md-6 section_3__img section_3__img--1">
-              <div></div>
-            </div>
-            <div class="col-md-6 section_3__img section_3__img--2">
-              <div></div>
-            </div>
-          </div>
-          <div class="row row--imgContainer">
-            <div class="col-md-6 section_3__img section_3__img--3">
-              <div></div>
-            </div>
-            <div class="col-md-6 section_3__img section_3__img--4">
-              <div></div>
-            </div>
-          </div>
+        <div class="col-md-4 imgContainer">
         </div>
       </div>
     </div>
@@ -52,17 +36,9 @@
     font-size: 30px;
     padding-bottom: 30px;
   }
-  .section_3__img{
-    text-align: center;
-    text-align: -webkit-center;
-    padding: 0;
-  }
-  .section_3__img div{
-    max-width:100px;
-    height:100px;
-    background-color: crimson;
-  }
-  .row--imgContainer{
-    margin-bottom:10px;
+  .imgContainer{
+    background: url("../../assets/img/pic.png") center no-repeat;
+    background-size: contain;
+    height: 220px;
   }
 </style>

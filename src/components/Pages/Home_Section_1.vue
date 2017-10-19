@@ -16,12 +16,12 @@
           </div>
           <div class="modal-body">
             <form class="form-horizontal">
-              <app-input input_label="شماره تلفن" input_type="number" comp_id="0" key="0"></app-input>
-              <app-input input_label="رمز عبور" input_type="password" comp_id="1" key="1"></app-input>
+              <app-input :v-model="phone_number" input_label="شماره تلفن" input_type="number" comp_id="0" key="0"></app-input>
+              <app-input :v-model="password" input_label="رمز عبور" input_type="password" comp_id="1" key="1"></app-input>
             </form>
           </div>
           <div class="pmd-modal-action">
-            <app-button class="btn-modal" dismiss="modal" button_label="ورود"></app-button>
+            <app-button class="btn-modal" :button_label="button_text" @click="enterClicked"></app-button>
           </div>
         </div>
       </div>
@@ -32,7 +32,30 @@
 <script>
   import Button from '@/components/Elements/Button.vue'
   import Input from '@/components/Elements/Input_text.vue'
+  import axios from 'axios'
+
+  const enterAPIPath = 'http://95.211.250.101/users/login';
+
   export default {
+    data:function () {
+      return {
+        button_text:'ورود',
+        register_data: {
+          phone_number:'',
+          password:''
+        }
+      }
+    },
+    methods:
+      {
+        enterClicked(){
+            axios.post(enterAPIPath, this.register_data).then((response) => {
+              console.log(response.data.token);
+            }).catch((err) => {
+              this.button_text = 'ارسال اطلاعات با خطا روبرو شد';
+            });
+        }
+      },
     components: {
       'app-button':Button,
       'app-input':Input
