@@ -21,3 +21,11 @@
     }
   }
 </script>
+<style>
+  .form-group{
+    text-align: right;
+  }
+  .control-label{
+    color: #fff !important;
+  }
+</style>

@@ -2,7 +2,7 @@
   <div>
     <app-section_1></app-section_1>
     <app-section_2></app-section_2>
-    <app-section_3></app-section_3>
+    <app-section_4></app-section_4>
   </div>
 </template>
 
@@ -12,7 +12,9 @@
   import Section_1 from './Home_Section_1.vue'
   import Section_2 from './Section_2.vue'
   import Section_3 from './Section_3.vue'
-export default {
+  import Section_4 from './Section_4.vue'
+
+  export default {
   name: 'HelloWorld',
   data () {
     return {
@@ -24,7 +26,9 @@ export default {
     'app-select': Select,
     'app-section_1':Section_1,
     'app-section_2':Section_2,
-    'app-section_3':Section_3
+    'app-section_3':Section_3,
+    'app-section_4':Section_4
+
   }
 }
 </script>
