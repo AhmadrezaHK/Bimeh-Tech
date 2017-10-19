@@ -7,6 +7,7 @@ import 'propellerkit/dist/css/propeller.min.css'
 import 'propellerkit/dist/js/bootstrap.min.js'
 import 'propellerkit/dist/js/propeller.min.js'
 import '../src/assets/css/style.css'
+import store from './vuexstore'
 
 Vue.config.productionTip = false;
 
@@ -14,5 +15,6 @@ Vue.config.productionTip = false;
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 });
