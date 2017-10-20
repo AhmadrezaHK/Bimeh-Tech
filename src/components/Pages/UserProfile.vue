@@ -3,7 +3,9 @@
     <div class="col-sm-12">
       <div class="col-md-5 map">
         <h2>مسیر طی شده</h2>
-        <div class="col-sm-12 map__content"></div>
+        <div class="col-sm-12 map__content">
+          <app-map></app-map>
+        </div>
       </div>
       <div class="col-md-7">
         <div class="col-sm-12">
@@ -75,6 +77,7 @@
 
 <script>
   import axios from 'axios'
+  import Map from  './UserWaysMap.vue'
 
   let baseLink = 'http://95.211.250.101/users/';
 
@@ -89,9 +92,12 @@
 
         lastTripe:[],
 
+        map:[],
+
       }
     },
     components:{
+      'app-map':Map
     },
     mounted:function () {
 
@@ -154,6 +160,18 @@
             this.lastTripe = response.data.trips;
           }
         );
+
+/*      axios({
+        method:'GET',
+        url: "http://95.211.250.101/trips/latest",
+        headers:{
+          'Content-Type':"application/json",
+          "TOKEN":localStorage["token"]
+        }
+      }).then(response =>{
+          this.map = response.data.trips;
+        }
+      );*/
     }
   }
 </script>
