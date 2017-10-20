@@ -75,7 +75,8 @@
     width: 30px;
     height: 30px;
     border-radius: 15px;
-    background-color: rgba(216, 216, 216, 1);
+    background:url("../../assets/img/user.png") no-repeat center;
+    background-size: contain;
   }
   .left--3{
     color: #fff;

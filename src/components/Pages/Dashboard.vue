@@ -2,7 +2,7 @@
   <div class="dashboard">
     <!--<app-add-car></app-add-car>-->
     <!--<app-before-add-car></app-before-add-car>-->
-    <!--<app-user-profile></app-user-profile>-->
+    <app-user-profile></app-user-profile>
     <app-dash-base></app-dash-base>
   </div>
 </template>
