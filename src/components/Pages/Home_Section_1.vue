@@ -21,7 +21,7 @@
             </form>
           </div>
           <div class="pmd-modal-action">
-            <app-button class="btn-modal" :button_label="button_text" @click="enterClicked"></app-button>
+            <app-button dismiss="modal" class="btn-modal" :button_label="button_text" @click="enterClicked"></app-button>
           </div>
         </div>
       </div>
@@ -51,6 +51,7 @@
         enterClicked(){
             axios.post(enterAPIPath, this.register_data).then((response) => {
               localStorage["token"] = response.data.user.token;
+              this.$router.push('Dashboard');
               console.log(localStorage["token"]);
             }).catch((err) => {
               this.button_text = 'ارسال اطلاعات با خطا روبرو شد';
