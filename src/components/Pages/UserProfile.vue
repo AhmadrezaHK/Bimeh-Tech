@@ -1,7 +1,10 @@
 <template>
   <div class="userProfile">
     <div class="col-sm-12">
-      <div class="col-md-5 map">asd</div>
+      <div class="col-md-5 map">
+        <h2>مسیر طی شده</h2>
+        <div class="col-sm-12 map__content"></div>
+      </div>
       <div class="col-md-7">
         <div class="col-sm-12">
           <h2 class="text-right">وضعیت کاربر</h2>
@@ -9,58 +12,63 @@
             <div class="col-md-3 col-sm-6 lastUserStats__accelerate">
               <div class="lastUserStats__label">حداکثر شتاب</div>
               <div class="lastUserStats__accelerate__img"></div>
-              <div><span class="userProfile__unit">m/s<sup>2</sup></span>{{lastAccelerate}}</div>
+              <div><span class="userProfile__unit">m/s<sup>2</sup></span>{{parseInt(lastAccelerate).toFixed(2)}}</div>
             </div>
             <div class="col-md-3 col-sm-6 lastUserStats__distance">
               <div class="lastUserStats__label">مجموع مسافت طی شده</div>
               <div class="lastUserStats__distance__img"></div>
-              <div><span class="userProfile__unit">کیلومتر</span>{{lastDistance}}</div>
+              <div><span class="userProfile__unit">کیلومتر</span>{{parseInt(lastDistance).toFixed(2)}}</div>
             </div>
             <div class="col-md-3 col-sm-6 lastUserStats__score">
               <div class="lastUserStats__label">امتیاز کاربر</div>
               <div class="lastUserStats__score__img"></div>
-              <div><span class="userProfile__unit">امتیاز</span>{{lastScore}}</div>
+              <div><span class="userProfile__unit">امتیاز</span>{{parseInt(lastScore).toFixed(2)}}</div>
             </div>
             <div class="col-md-3 col-sm-6 lastUserStats__oil">
               <div class="lastUserStats__label">میانگین مصرف سوخت</div>
               <div class="lastUserStats__oil__img"></div>
-              <div><span class="userProfile__unit">لیتر/100کیلومتر</span>{{lastOil}}</div>
+              <div><span class="userProfile__unit">لیتر/100کیلومتر</span>{{parseInt(lastOil).toFixed(2)}}</div>
             </div>
           </div>
         </div>
         <div class="col-sm-12">
           <h2 class="text-right">آخرین سفر ها</h2>
-          <div class="col-sm-12 lastTripeStats" v-for="(item, i) in lastTripe" :key="i">
-            <div class="col-md-3 col-sm-6 lastTripeStats__accelerate">
-              <div class="lastTripeStats__accelerate__img"></div>
-              <div class="lastTripeStats__accelerate__unite">
-                <span class="userProfile__unit">m/s<sup>2</sup></span>{{item.accelerate}}
+          <div class="col-xs-12 lastTripeStats" v-for="(item, i) in lastTripe" :key="i">
+            <div class="col-md-3 col-xs-6 lastTripeStats__accelerate">
+              <div class="img"></div>
+              <div class="unit">
+                <span class="userProfile__unit">m/s<sup>2</sup></span>{{item.accel.toFixed(2)}}
               </div>
             </div>
-            <div class="col-md-3 col-sm-6 lastTripeStats__oil">
-              <div class="lastTripeStats__oil__img"></div>
-              <div class="__unite">
-                <span class="userProfile__unit">لیتر/100کیلومتر</span>{{item.oil}}
+            <div class="col-md-3 col-xs-6 lastTripeStats__oil">
+              <div class="img"></div>
+              <div class="unit">
+                <span class="userProfile__unit">لیتر/100کیلومتر</span>{{item.oil.toFixed(2)}}
               </div>
             </div>
-            <div class="col-md-3 col-sm-6 lastTripeStats__score">
-              <div class="lastTripeStats__score__img"></div>
-              <div class="__unite">
-                <span class="userProfile__unit">امتیاز</span>{{item.score}}
+            <div class="col-md-3 col-xs-6 lastTripeStats__score">
+              <div class="img"></div>
+              <div class="unit">
+                <span class="userProfile__unit">امتیاز</span>{{item.score.toFixed(2)}}
               </div>
             </div>
-            <div class="col-md-3 col-sm-6 lastTripeStats__distance">
-              <div class="lastTripeStats__distance__img"></div>
-              <div class="__unite">
-                <span class="userProfile__unit">کیلومتر</span>{{item.distance}}
+            <div class="col-md-3 col-xs-6 lastTripeStats__distance">
+              <div class="img"></div>
+              <div class="unit">
+                <span class="userProfile__unit">کیلومتر</span>{{item.distance.toFixed(2)}}
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-12"></div>
+    <div class="col-sm-12">
+      <div class="col-sm-12 chart">
+        <h2 class="text-right">نمودار سرعت خودرو</h2>
+        <div class="col-sm-12 chart__content">
+
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -68,7 +76,7 @@
 <script>
   import axios from 'axios'
 
-  let token = '';
+  let baseLink = 'http://95.211.250.101/users/';
 
   export default {
     data:function () {
@@ -79,30 +87,73 @@
         lastScore:'',
         lastOil:'',
 
-        lastTripe:[
-          {
-            accelerate:'',
-            distance:'',
-            score:'',
-            oil:''
-          }
-        ]
+        lastTripe:[],
+
       }
     },
     components:{
     },
     mounted:function () {
-      axios({
-        method:'GET',
-        url:'http://95.211.250.101/users/getmaxdistance',
-        headers:{
-          'Content-Type':"application/json",
-          "TOKEN":localStorage["token"]
-        }
-      }).then(response =>{
-        console.log(response);
-        }
-      )
+
+        axios({
+          method:'GET',
+          url: baseLink + "getavgaxel",
+          headers:{
+            'Content-Type':"application/json",
+            "TOKEN":localStorage["token"]
+          }
+        }).then(response =>{
+            this.lastAccelerate = response.data.avg;
+          }
+        );
+
+        axios({
+          method:'GET',
+          url: baseLink + "getdistance",
+          headers:{
+            'Content-Type':"application/json",
+            "TOKEN":localStorage["token"]
+          }
+        }).then(response =>{
+            this.lastDistance = response.data.distance;
+          }
+        );
+
+        axios({
+          method:'GET',
+          url: baseLink + "getscore",
+          headers:{
+            'Content-Type':"application/json",
+            "TOKEN":localStorage["token"]
+          }
+        }).then(response =>{
+            this.lastScore = response.data.score;
+          }
+        );
+
+        axios({
+          method:'GET',
+          url: baseLink + "getmaxoil",
+          headers:{
+            'Content-Type':"application/json",
+            "TOKEN":localStorage["token"]
+          }
+        }).then(response =>{
+            this.lastOil = response.data.maxOil;
+          }
+        );
+
+        axios({
+          method:'GET',
+          url: "http://95.211.250.101/trips/latest",
+          headers:{
+            'Content-Type':"application/json",
+            "TOKEN":localStorage["token"]
+          }
+        }).then(response =>{
+            this.lastTripe = response.data.trips;
+          }
+        );
     }
   }
 </script>
@@ -166,12 +217,58 @@
   }
   .lastTripeStats{
     background-color: #fff;
-    padding: 20px 15px;
+    padding: 15px 5px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
     -webkit-box-shadow: 0 1px 6px #999;
     -moz-box-shadow: 0 1px 6px #999;
     box-shadow: 0 1px 6px #999;
+  }
+  .lastTripeStats .img{
+    height: 30px;
+    width: 30px;
+    margin-bottom: 15px;
+  }
+  .lastTripeStats > div{
+    text-align: center;
+    text-align: -webkit-center;
+  }
+  .lastTripeStats__accelerate .img{
+    background: url("../../assets/img/urgency-bl.png") no-repeat center;
+    background-size: contain;
+  }
+  .lastTripeStats__distance .img{
+background: url("../../assets/img/distance-bl.png") no-repeat center;
+    background-size: contain;
+  }
+  .lastTripeStats__score .img{
+background: url("../../assets/img/customer-bl.png") no-repeat center;
+    background-size: contain;
+  }
+  .lastTripeStats__oil .img{
+background: url("../../assets/img/shape-bl.png") no-repeat center;
+    background-size: contain;
+  }
+  .map__content{
+    height: 400px;
+    border: 3px solid #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 6px #999;
+    -moz-box-shadow: 0 1px 6px #999;
+    box-shadow: 0 1px 6px #999;
+  }
+  .chart__content{
+    height: 300px;
+    border: 3px solid #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 6px #999;
+    -moz-box-shadow: 0 1px 6px #999;
+    box-shadow: 0 1px 6px #999;
+    margin-bottom: 30px;
   }
 </style>
