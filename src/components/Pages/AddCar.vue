@@ -37,10 +37,12 @@
     text-align: right;
   }
   .addCar .control-label.my-input{
-    color: #333 !important;
+    padding-right: 25px;
+    color: #666 !important;
+    font-size: 12px;
   }
   .addCar .form-control{
-    color: #333;
+    color: #666;
   }
   @media (min-width: 768px){
     .addCar .form-horizontal .control-label.my-input {
@@ -50,16 +52,21 @@
     }
   }
   .addCar .pmd-textfield-focused{
-    background-color: #333;
+    background-color: #666;
   }
   .addCar .select-lable{
-    color: #333!important;
+    color: #666!important;
     padding-right: 25px;
+    font-size: 12px;
   }
   .addCar .select-simple.form-control.pmd-select2{
-    color: #333;
+    color: #666;
   }
   .addCar .select-simple.form-control.pmd-select2[selected="true"]{
-    color: #333;
+    color: #666;
+  }
+  .addCar{
+    width: 400px;
+    margin: 100px auto 50px;
   }
 </style>
